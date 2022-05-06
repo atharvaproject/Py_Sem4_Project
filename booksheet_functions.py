@@ -1,7 +1,7 @@
 import gspread
 import time
-gc = gspread.service_account(filename='')
-sh = gc.open_by_url("")
+gc = gspread.service_account(filename='credentials.json')
+sh = gc.open_by_url("https://docs.google.com/spreadsheets/d/1e3By9SZ0S1Rp4kDXCkwh-v9gMf9ZM_xygb11WdTApnc/edit?usp=sharing")
 worksheet = sh.worksheet("Sheet1")
 l = len(worksheet.col_values(1))
 
@@ -24,6 +24,25 @@ def editbookprice(BIN, new_price):
 def editqavail(BIN, q_avail):
     cell = worksheet.find(BIN)
     worksheet.update_cell(cell.row, 4, new_price)
+
+def getBookName(BIN):
+    cell = worksheet.find(BIN)
+    return worksheet.cell(cell.row, 2).value
+
+def getBookPrice(BIN):
+    cell = worksheet.find(BIN)
+    return worksheet.cell(cell.row, 3).value
+
+def delRecord(BIN):
+    cell = worksheet.find(BIN)
+    worksheet.update_cell(cell.row, 2, 'No longer available.')
+    worksheet.update_cell(cell.row, 3, 'No longer available.')
+    worksheet.update_cell(cell.row, 4, 'No longer available.')
+    worksheet.update_cell(cell.row, 5, 'No longer available.')
+
+
+
+
 
 
 
