@@ -94,7 +94,6 @@ def B4(BIN1, b1qty):
     incqsold(BIN1, int(b1qty))
     decqavail(BIN1, int(b1qty))
     return b1amt
-
 def B5(BIN1, b1qty):
     b1name = getBookName(BIN1)
     b1price = int(getBookPrice(BIN1))
