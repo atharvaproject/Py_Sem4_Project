@@ -1,7 +1,7 @@
 import gspread
 import time
-gc = gspread.service_account(filename='credentials.json')
-sh = gc.open_by_url("https://docs.google.com/spreadsheets/d/1e3By9SZ0S1Rp4kDXCkwh-v9gMf9ZM_xygb11WdTApnc/edit?usp=sharing")
+gc = gspread.service_account(filename='')
+sh = gc.open_by_url("")
 worksheet = sh.worksheet("Sheet1")
 l = len(worksheet.col_values(1))
 
