@@ -4,8 +4,8 @@ import gspread
 import time
 from datetime import datetime
 from booksheet_functions import *
-gcb = gspread.service_account(filename='credentials.json')
-shb = gcb.open_by_url("https://docs.google.com/spreadsheets/d/1Z49E0dyDrIcviyWq9JZS0xCpXioGy1EQ6pJ8odVY6aI/edit?usp=sharing")
+gcb = gspread.service_account(filename='')
+shb = gcb.open_by_url("")
 worksheetb = shb.worksheet("Sheet1")
 lb = len(worksheetb.col_values(1))
 inv = "INV00" + str(lb)
